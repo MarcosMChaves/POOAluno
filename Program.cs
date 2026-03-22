@@ -1,4 +1,4 @@
-﻿using POOFoundation;
+﻿using OOPFoundation;
 using POOAluno;
 
 Text pedro = new Text(text: "Pedro", validPattern: "\\p{L}\\s.");

@@ -1,14 +1,14 @@
-﻿using FlexAPessoa;
+﻿using POOFoundation;
 
 namespace POOAluno
 {
     public class Aluno
     {
-        private readonly Texto Nome;
-        private readonly Texto Sobrenome;
+        private readonly Text Nome;
+        private readonly Text Sobrenome;
         private readonly RA Matricula;
 
-        public Aluno(Texto nome, Texto sobrenome, RA matricula)
+        public Aluno(Text nome, Text sobrenome, RA matricula)
         {
             Nome = nome ?? throw new ArgumentNullException(nameof(nome));
             Sobrenome = sobrenome ?? throw new ArgumentNullException(nameof(sobrenome));
@@ -16,7 +16,7 @@ namespace POOAluno
         }
         private string FormatarNomeCompleto()
         {
-            return $"{Nome.GetTexto()} {Sobrenome.GetTexto()}";
+            return $"{Nome.GetText()} {Sobrenome.GetText()}";
         }
         private string FormatarNomeCompletoComMatricula()
         {

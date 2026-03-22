@@ -1,10 +1,10 @@
 ﻿
-using FlexAPessoa;
+using POOFoundation;
 using System.Text.RegularExpressions;
 
 namespace POOAluno
 {
-    public class RA: ISanitizar, IValidarTexto
+    public class RA: ISanitization, ITextValidation
     {
         private readonly string Numero;
         private readonly string PatternValido;
@@ -13,8 +13,8 @@ namespace POOAluno
         {
             PatternValido = patternValido.Trim();
 
-            string numeroSanitizado = Sanitizar(textoParaSanitizar: numero);
-            if (!ValidarTexto(textoParaValidar: numeroSanitizado))
+            string numeroSanitizado = Sanitize(textoParaSanitizar: numero);
+            if (!TextIsValid(textoParaValidar: numeroSanitizado))
             {
                 throw new ArgumentException($"Argumento 'numero'='{numero}' inválido!");
             }
@@ -22,7 +22,7 @@ namespace POOAluno
             Numero = numeroSanitizado.ToUpper();
 
         }
-        public string Sanitizar(string textoParaSanitizar)
+        public string Sanitize(string textoParaSanitizar)
         {
             string textoSanitizado = System.String.Empty;
             try
@@ -37,7 +37,7 @@ namespace POOAluno
             return textoSanitizado;
         }
 
-        public bool ValidarTexto(string textoParaValidar)
+        public bool TextIsValid(string textoParaValidar)
         {
             if (String.IsNullOrEmpty(textoParaValidar) ||
                 String.IsNullOrWhiteSpace(textoParaValidar))
